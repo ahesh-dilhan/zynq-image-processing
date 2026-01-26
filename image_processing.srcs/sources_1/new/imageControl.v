@@ -213,7 +213,7 @@ linebuffer lB0(
 );
 
     
-inebuffer lB1(
+linebuffer lB1(
     .i_clk(i_clk),
     .i_rst(i_rst),
     .i_data(i_pixel_data),
@@ -231,7 +231,7 @@ linebuffer lB2(
     .i_rd_data(lineBufferRdData[2])
 );
 
-    linebuffer lB3(
+linebuffer lB3(
     .i_clk(i_clk),
     .i_rst(i_rst),
     .i_data(i_pixel_data),
