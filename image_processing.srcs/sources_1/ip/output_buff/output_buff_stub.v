@@ -3,8 +3,8 @@
 // Tool Version: Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
 // Date        : Mon Jan 26 12:02:42 2026
 // Host        : DESKTOP-FSL3DFO running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode synth_stub
-//               d:/FPGA/image_processing/image_processing.srcs/sources_1/ip/output_buff/output_buff_stub.v
+// Command     : write_verilog -force -mode synth_stub -rename_top output_buff -prefix
+//               output_buff_ output_buff_stub.v
 // Design      : output_buff
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xc7z020clg484-1

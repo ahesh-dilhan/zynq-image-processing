@@ -3,8 +3,8 @@
 -- Tool Version: Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
 -- Date        : Mon Jan 26 12:02:42 2026
 -- Host        : DESKTOP-FSL3DFO running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode funcsim
---               d:/FPGA/image_processing/image_processing.srcs/sources_1/ip/output_buff/output_buff_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim -rename_top output_buff -prefix
+--               output_buff_ output_buff_sim_netlist.vhdl
 -- Design      : output_buff
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -28,8 +28,6 @@ entity output_buff_xpm_cdc_sync_rst is
   attribute INIT of output_buff_xpm_cdc_sync_rst : entity is "1";
   attribute INIT_SYNC_FF : integer;
   attribute INIT_SYNC_FF of output_buff_xpm_cdc_sync_rst : entity is 0;
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of output_buff_xpm_cdc_sync_rst : entity is "xpm_cdc_sync_rst";
   attribute SIM_ASSERT_CHK : integer;
   attribute SIM_ASSERT_CHK of output_buff_xpm_cdc_sync_rst : entity is 0;
   attribute VERSION : integer;
@@ -140,8 +138,6 @@ entity output_buff_blk_mem_gen_prim_wrapper is
     \out\ : in STD_LOGIC;
     s_axis_tvalid : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of output_buff_blk_mem_gen_prim_wrapper : entity is "blk_mem_gen_prim_wrapper";
 end output_buff_blk_mem_gen_prim_wrapper;
 
 architecture STRUCTURE of output_buff_blk_mem_gen_prim_wrapper is
@@ -376,8 +372,6 @@ entity output_buff_rd_bin_cntr is
     \ngwrdrst.grst.g7serrst.gsckt_wrst.gcc_rst.sckt_wr_rst_cc_reg[0]\ : in STD_LOGIC;
     s_aclk : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of output_buff_rd_bin_cntr : entity is "rd_bin_cntr";
 end output_buff_rd_bin_cntr;
 
 architecture STRUCTURE of output_buff_rd_bin_cntr is
@@ -618,8 +612,6 @@ entity output_buff_rd_fwft is
     \gcc0.gc0.count_reg[0]\ : in STD_LOGIC_VECTOR ( 0 to 0 );
     \gc0.count_d1_reg[0]\ : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of output_buff_rd_fwft : entity is "rd_fwft";
 end output_buff_rd_fwft;
 
 architecture STRUCTURE of output_buff_rd_fwft is
@@ -901,8 +893,6 @@ entity output_buff_rd_status_flags_ss is
     ram_empty_fb_i_reg_0 : in STD_LOGIC;
     s_aclk : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of output_buff_rd_status_flags_ss : entity is "rd_status_flags_ss";
 end output_buff_rd_status_flags_ss;
 
 architecture STRUCTURE of output_buff_rd_status_flags_ss is
@@ -969,8 +959,6 @@ entity output_buff_wr_bin_cntr is
     E : in STD_LOGIC_VECTOR ( 0 to 0 );
     s_aclk : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of output_buff_wr_bin_cntr : entity is "wr_bin_cntr";
 end output_buff_wr_bin_cntr;
 
 architecture STRUCTURE of output_buff_wr_bin_cntr is
@@ -1201,8 +1189,6 @@ entity output_buff_wr_pf_ss is
     \grstd1.grst_full.grst_f.rst_d3_reg\ : in STD_LOGIC;
     D : in STD_LOGIC_VECTOR ( 3 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of output_buff_wr_pf_ss : entity is "wr_pf_ss";
 end output_buff_wr_pf_ss;
 
 architecture STRUCTURE of output_buff_wr_pf_ss is
@@ -1353,8 +1339,6 @@ entity output_buff_wr_status_flags_ss is
     s_aclk : in STD_LOGIC;
     s_axis_tvalid : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of output_buff_wr_status_flags_ss : entity is "wr_status_flags_ss";
 end output_buff_wr_status_flags_ss;
 
 architecture STRUCTURE of output_buff_wr_status_flags_ss is
@@ -1450,8 +1434,6 @@ entity output_buff_blk_mem_gen_prim_width is
     \out\ : in STD_LOGIC;
     s_axis_tvalid : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of output_buff_blk_mem_gen_prim_width : entity is "blk_mem_gen_prim_width";
 end output_buff_blk_mem_gen_prim_width;
 
 architecture STRUCTURE of output_buff_blk_mem_gen_prim_width is
@@ -1589,8 +1571,6 @@ entity output_buff_rd_logic is
     \gcc0.gc0.count_reg[3]\ : in STD_LOGIC_VECTOR ( 3 downto 0 );
     E : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of output_buff_rd_logic : entity is "rd_logic";
 end output_buff_rd_logic;
 
 architecture STRUCTURE of output_buff_rd_logic is
@@ -1663,8 +1643,6 @@ entity output_buff_reset_blk_ramfifo is
     m_axis_tready : in STD_LOGIC;
     s_aresetn : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of output_buff_reset_blk_ramfifo : entity is "reset_blk_ramfifo";
 end output_buff_reset_blk_ramfifo;
 
 architecture STRUCTURE of output_buff_reset_blk_ramfifo is
@@ -1879,8 +1857,6 @@ entity output_buff_wr_logic is
     D : in STD_LOGIC_VECTOR ( 2 downto 0 );
     \gc0.count_d1_reg[3]_0\ : in STD_LOGIC_VECTOR ( 3 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of output_buff_wr_logic : entity is "wr_logic";
 end output_buff_wr_logic;
 
 architecture STRUCTURE of output_buff_wr_logic is
@@ -1951,8 +1927,6 @@ entity output_buff_blk_mem_gen_generic_cstr is
     \out\ : in STD_LOGIC;
     s_axis_tvalid : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of output_buff_blk_mem_gen_generic_cstr : entity is "blk_mem_gen_generic_cstr";
 end output_buff_blk_mem_gen_generic_cstr;
 
 architecture STRUCTURE of output_buff_blk_mem_gen_generic_cstr is
@@ -1988,8 +1962,6 @@ entity output_buff_blk_mem_gen_top is
     \out\ : in STD_LOGIC;
     s_axis_tvalid : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of output_buff_blk_mem_gen_top : entity is "blk_mem_gen_top";
 end output_buff_blk_mem_gen_top;
 
 architecture STRUCTURE of output_buff_blk_mem_gen_top is
@@ -2025,8 +1997,6 @@ entity output_buff_blk_mem_gen_v8_4_1_synth is
     \out\ : in STD_LOGIC;
     s_axis_tvalid : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of output_buff_blk_mem_gen_v8_4_1_synth : entity is "blk_mem_gen_v8_4_1_synth";
 end output_buff_blk_mem_gen_v8_4_1_synth;
 
 architecture STRUCTURE of output_buff_blk_mem_gen_v8_4_1_synth is
@@ -2062,8 +2032,6 @@ entity output_buff_blk_mem_gen_v8_4_1 is
     \out\ : in STD_LOGIC;
     s_axis_tvalid : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of output_buff_blk_mem_gen_v8_4_1 : entity is "blk_mem_gen_v8_4_1";
 end output_buff_blk_mem_gen_v8_4_1;
 
 architecture STRUCTURE of output_buff_blk_mem_gen_v8_4_1 is
@@ -2100,8 +2068,6 @@ entity output_buff_memory is
     s_axis_tvalid : in STD_LOGIC;
     \ngwrdrst.grst.g7serrst.gsckt_wrst.gcc_rst.sckt_wr_rst_cc_reg[0]\ : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of output_buff_memory : entity is "memory";
 end output_buff_memory;
 
 architecture STRUCTURE of output_buff_memory is
@@ -2226,8 +2192,6 @@ entity output_buff_fifo_generator_ramfifo is
     s_axis_tvalid : in STD_LOGIC;
     s_aresetn : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of output_buff_fifo_generator_ramfifo : entity is "fifo_generator_ramfifo";
 end output_buff_fifo_generator_ramfifo;
 
 architecture STRUCTURE of output_buff_fifo_generator_ramfifo is
@@ -2348,8 +2312,6 @@ entity output_buff_fifo_generator_top is
     s_axis_tvalid : in STD_LOGIC;
     s_aresetn : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of output_buff_fifo_generator_top : entity is "fifo_generator_top";
 end output_buff_fifo_generator_top;
 
 architecture STRUCTURE of output_buff_fifo_generator_top is
@@ -2385,8 +2347,6 @@ entity output_buff_fifo_generator_v13_2_2_synth is
     s_axis_tvalid : in STD_LOGIC;
     s_aresetn : in STD_LOGIC
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of output_buff_fifo_generator_v13_2_2_synth : entity is "fifo_generator_v13_2_2_synth";
 end output_buff_fifo_generator_v13_2_2_synth;
 
 architecture STRUCTURE of output_buff_fifo_generator_v13_2_2_synth is
@@ -3047,8 +3007,6 @@ entity output_buff_fifo_generator_v13_2_2 is
   attribute C_WR_PNTR_WIDTH_WRCH of output_buff_fifo_generator_v13_2_2 : entity is 4;
   attribute C_WR_RESPONSE_LATENCY : integer;
   attribute C_WR_RESPONSE_LATENCY of output_buff_fifo_generator_v13_2_2 : entity is 1;
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of output_buff_fifo_generator_v13_2_2 : entity is "fifo_generator_v13_2_2";
 end output_buff_fifo_generator_v13_2_2;
 
 architecture STRUCTURE of output_buff_fifo_generator_v13_2_2 is

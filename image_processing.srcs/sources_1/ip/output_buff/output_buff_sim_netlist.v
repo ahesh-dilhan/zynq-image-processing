@@ -3,8 +3,8 @@
 // Tool Version: Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
 // Date        : Mon Jan 26 12:02:42 2026
 // Host        : DESKTOP-FSL3DFO running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode funcsim
-//               d:/FPGA/image_processing/image_processing.srcs/sources_1/ip/output_buff/output_buff_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim -rename_top output_buff -prefix
+//               output_buff_ output_buff_sim_netlist.v
 // Design      : output_buff
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -607,8 +607,8 @@ module output_buff
 endmodule
 
 (* DEF_VAL = "1'b1" *) (* DEST_SYNC_FF = "5" *) (* INIT = "1" *) 
-(* INIT_SYNC_FF = "0" *) (* ORIG_REF_NAME = "xpm_cdc_sync_rst" *) (* SIM_ASSERT_CHK = "0" *) 
-(* VERSION = "0" *) (* XPM_MODULE = "TRUE" *) (* xpm_cdc = "SYNC_RST" *) 
+(* INIT_SYNC_FF = "0" *) (* SIM_ASSERT_CHK = "0" *) (* VERSION = "0" *) 
+(* XPM_MODULE = "TRUE" *) (* xpm_cdc = "SYNC_RST" *) 
 module output_buff_xpm_cdc_sync_rst
    (src_rst,
     dest_clk,
@@ -679,7 +679,6 @@ module output_buff_xpm_cdc_sync_rst
         .R(1'b0));
 endmodule
 
-(* ORIG_REF_NAME = "blk_mem_gen_generic_cstr" *) 
 module output_buff_blk_mem_gen_generic_cstr
    (D,
     ENB_dly_D,
@@ -726,7 +725,6 @@ module output_buff_blk_mem_gen_generic_cstr
         .s_axis_tvalid(s_axis_tvalid));
 endmodule
 
-(* ORIG_REF_NAME = "blk_mem_gen_prim_width" *) 
 module output_buff_blk_mem_gen_prim_width
    (D,
     ENB_dly_D,
@@ -838,7 +836,6 @@ module output_buff_blk_mem_gen_prim_width
         .s_axis_tvalid(s_axis_tvalid));
 endmodule
 
-(* ORIG_REF_NAME = "blk_mem_gen_prim_wrapper" *) 
 module output_buff_blk_mem_gen_prim_wrapper
    (D,
     s_aclk,
@@ -1037,7 +1034,6 @@ module output_buff_blk_mem_gen_prim_wrapper
         .O(ENA_I));
 endmodule
 
-(* ORIG_REF_NAME = "blk_mem_gen_top" *) 
 module output_buff_blk_mem_gen_top
    (D,
     ENB_dly_D,
@@ -1084,7 +1080,6 @@ module output_buff_blk_mem_gen_top
         .s_axis_tvalid(s_axis_tvalid));
 endmodule
 
-(* ORIG_REF_NAME = "blk_mem_gen_v8_4_1" *) 
 module output_buff_blk_mem_gen_v8_4_1
    (D,
     ENB_dly_D,
@@ -1131,7 +1126,6 @@ module output_buff_blk_mem_gen_v8_4_1
         .s_axis_tvalid(s_axis_tvalid));
 endmodule
 
-(* ORIG_REF_NAME = "blk_mem_gen_v8_4_1_synth" *) 
 module output_buff_blk_mem_gen_v8_4_1_synth
    (D,
     ENB_dly_D,
@@ -1178,7 +1172,6 @@ module output_buff_blk_mem_gen_v8_4_1_synth
         .s_axis_tvalid(s_axis_tvalid));
 endmodule
 
-(* ORIG_REF_NAME = "fifo_generator_ramfifo" *) 
 module output_buff_fifo_generator_ramfifo
    (wr_rst_busy,
     m_axis_tdata,
@@ -1300,7 +1293,6 @@ module output_buff_fifo_generator_ramfifo
         .wr_rst_busy(wr_rst_busy));
 endmodule
 
-(* ORIG_REF_NAME = "fifo_generator_top" *) 
 module output_buff_fifo_generator_top
    (wr_rst_busy,
     m_axis_tdata,
@@ -1414,7 +1406,7 @@ endmodule
 (* C_WR_DEPTH_WRCH = "16" *) (* C_WR_FREQ = "1" *) (* C_WR_PNTR_WIDTH = "10" *) 
 (* C_WR_PNTR_WIDTH_AXIS = "4" *) (* C_WR_PNTR_WIDTH_RACH = "4" *) (* C_WR_PNTR_WIDTH_RDCH = "10" *) 
 (* C_WR_PNTR_WIDTH_WACH = "4" *) (* C_WR_PNTR_WIDTH_WDCH = "10" *) (* C_WR_PNTR_WIDTH_WRCH = "4" *) 
-(* C_WR_RESPONSE_LATENCY = "1" *) (* ORIG_REF_NAME = "fifo_generator_v13_2_2" *) 
+(* C_WR_RESPONSE_LATENCY = "1" *) 
 module output_buff_fifo_generator_v13_2_2
    (backup,
     backup_marker,
@@ -2421,7 +2413,6 @@ module output_buff_fifo_generator_v13_2_2
         .wr_rst_busy(wr_rst_busy));
 endmodule
 
-(* ORIG_REF_NAME = "fifo_generator_v13_2_2_synth" *) 
 module output_buff_fifo_generator_v13_2_2_synth
    (wr_rst_busy,
     m_axis_tdata,
@@ -2468,7 +2459,6 @@ module output_buff_fifo_generator_v13_2_2_synth
         .wr_rst_busy(wr_rst_busy));
 endmodule
 
-(* ORIG_REF_NAME = "memory" *) 
 module output_buff_memory
    (ENB_dly_D,
     m_axis_tdata,
@@ -2583,7 +2573,6 @@ module output_buff_memory
         .R(1'b0));
 endmodule
 
-(* ORIG_REF_NAME = "rd_bin_cntr" *) 
 module output_buff_rd_bin_cntr
    (ram_empty_i_reg,
     D,
@@ -2783,7 +2772,6 @@ module output_buff_rd_bin_cntr
         .O(ram_full_fb_i_i_3_n_0));
 endmodule
 
-(* ORIG_REF_NAME = "rd_fwft" *) 
 module output_buff_rd_fwft
    (out,
     ENB_I,
@@ -3035,7 +3023,6 @@ module output_buff_rd_fwft
         .O(ram_full_fb_i_reg));
 endmodule
 
-(* ORIG_REF_NAME = "rd_logic" *) 
 module output_buff_rd_logic
    (out,
     empty_fwft_fb_o_i_reg,
@@ -3146,7 +3133,6 @@ module output_buff_rd_logic
         .s_aclk(s_aclk));
 endmodule
 
-(* ORIG_REF_NAME = "rd_status_flags_ss" *) 
 module output_buff_rd_status_flags_ss
    (out,
     ram_empty_fb_i_reg_0,
@@ -3185,7 +3171,6 @@ module output_buff_rd_status_flags_ss
         .R(1'b0));
 endmodule
 
-(* ORIG_REF_NAME = "reset_blk_ramfifo" *) 
 module output_buff_reset_blk_ramfifo
    (wr_rst_busy,
     out,
@@ -3340,7 +3325,6 @@ module output_buff_reset_blk_ramfifo
         .O(wr_rst_busy_i));
 endmodule
 
-(* ORIG_REF_NAME = "wr_bin_cntr" *) 
 module output_buff_wr_bin_cntr
    (ram_empty_i_reg,
     ram_full_fb_i_reg,
@@ -3552,7 +3536,6 @@ module output_buff_wr_bin_cntr
         .O(ram_full_fb_i_reg));
 endmodule
 
-(* ORIG_REF_NAME = "wr_logic" *) 
 module output_buff_wr_logic
    (out,
     E,
@@ -3651,7 +3634,6 @@ module output_buff_wr_logic
         .s_axis_tvalid(s_axis_tvalid));
 endmodule
 
-(* ORIG_REF_NAME = "wr_pf_ss" *) 
 module output_buff_wr_pf_ss
    (axis_prog_full,
     \ngwrdrst.grst.g7serrst.gsckt_wrst.gcc_rst.sckt_wr_rst_cc_reg[0] ,
@@ -3775,7 +3757,6 @@ module output_buff_wr_pf_ss
         .R(\ngwrdrst.grst.g7serrst.gsckt_wrst.gcc_rst.sckt_wr_rst_cc_reg[0] ));
 endmodule
 
-(* ORIG_REF_NAME = "wr_status_flags_ss" *) 
 module output_buff_wr_status_flags_ss
    (out,
     E,

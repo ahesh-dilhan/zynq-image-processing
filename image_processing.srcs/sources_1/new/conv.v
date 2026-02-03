@@ -1,9 +1,10 @@
+
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
 // Company: 
 // Engineer: 
 // 
-// Create Date: 01/22/2026 10:56:47 AM
+// Create Date: 03/31/2020 10:09:05 PM
 // Design Name: 
 // Module Name: conv
 // Project Name: 
@@ -21,63 +22,59 @@
 
 
 module conv(
-input i_clk,
-input [71:0]i_pixel_data,
-input i_pixel_data_valid,
-output reg [7:0] O_convolved_data,
-output reg o_convolved_data_valid
-);
-integer i;
+input        i_clk,
+input [71:0] i_pixel_data,
+input        i_pixel_data_valid,
+output reg [7:0] o_convolved_data,
+output reg   o_convolved_data_valid
+    );
+    
+integer i; 
 reg [7:0] kernel [8:0];
-reg [15:0] multdata[8:0];
-reg [15:0] sumdataInt;
-reg [15:0] sumdata;
-reg mulDataValid;
-reg sumDataVlaid;
+reg [15:0] multData[8:0];
+reg [15:0] sumDataInt;
+reg [15:0] sumData;
+reg multDataValid;
+reg sumDataValid;
 reg convolved_data_valid;
 
-
-initial 
+initial
 begin
     for(i=0;i<9;i=i+1)
     begin
-        kernel[i]=1;
+        kernel[i] = 1;
     end
-end
-
-always@ (posedge i_clk)
-begin
-    for(i=0;i<9;i=i+1)
-    begin
-        multdata[i] <= kernel[i]*i_pixel_data[i*8+:8];
-    end
-    mulDataValid <= i_pixel_data_valid;
+end    
     
+always @(posedge i_clk)
+begin
+    for(i=0;i<9;i=i+1)
+    begin
+        multData[i] <= kernel[i]*i_pixel_data[i*8+:8];
+    end
+    multDataValid <= i_pixel_data_valid;
 end
 
 
- 
 always @(*)
 begin
-    sumdataInt <= 0;
-    for (i=0;i<9;i=i+1)
+    sumDataInt = 0;
+    for(i=0;i<9;i=i+1)
     begin
-        sumdataInt <= sumdataInt + multdata[i];
+        sumDataInt = sumDataInt + multData[i];
     end
 end
+
 always @(posedge i_clk)
 begin
-    sumdata <=sumdataInt;
-    sumDataVlaid <= mulDataValid;
+    sumData <= sumDataInt;
+    sumDataValid <= multDataValid;
 end
-
+    
 always @(posedge i_clk)
-begin 
-    O_convolved_data <= sumdata/9;
-    o_convolved_data_valid <= sumDataVlaid;
-    
+begin
+    o_convolved_data <= sumData/9;
+    o_convolved_data_valid <= sumDataValid;
 end
-
     
-
 endmodule

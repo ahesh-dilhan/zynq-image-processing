@@ -1,51 +1,61 @@
-module linebuffer(
-    input i_clk,
-    input i_rst,
-    input [7:0] i_data,
-    input i_data_valid,
-    output [23:0] o_data,
-    input i_rd_data
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 03/30/2020 07:25:49 PM
+// Design Name: 
+// Module Name: lineBuffer
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
+
+module lineBuffer(
+input   i_clk,
+input   i_rst,
+input [7:0] i_data,
+input   i_data_valid,
+output [23:0] o_data,
+input i_rd_data
 );
 
-reg [7:0] line [511:0]; // Line buffer memory
-reg [8:0] wrpntr;
-reg [8:0] rdpntr;
+reg [7:0] line [511:0]; //line buffer
+reg [8:0] wrPntr;
+reg [8:0] rdPntr;
 
-// --------------------------------------------------------
-// 1. Write Pointer Logic (Fixing the Red 'X' Issue)
-// --------------------------------------------------------
-always @(posedge i_clk) begin
-    if (i_rst) begin
-        wrpntr <= 'd0;        // Reset pointer to 0
-    end else if (i_data_valid) begin
-        wrpntr <= wrpntr + 'd1; // Increment pointer
-    end
+always @(posedge i_clk)
+begin
+    if(i_data_valid)
+        line[wrPntr] <= i_data;
 end
 
-// --------------------------------------------------------
-// 2. Read Pointer Logic
-// --------------------------------------------------------
-always @(posedge i_clk) begin
-    if (i_rst) begin
-        rdpntr <= 'd0;        // Reset pointer to 0
-    end else if (i_rd_data) begin
-        rdpntr <= rdpntr + 'd1; // Increment pointer
-    end
+always @(posedge i_clk)
+begin
+    if(i_rst)
+        wrPntr <= 'd0;
+    else if(i_data_valid)
+        wrPntr <= wrPntr + 'd1;
 end
 
-// --------------------------------------------------------
-// 3. Memory Write Logic
-// --------------------------------------------------------
-always @(posedge i_clk) begin
-    if (i_data_valid) begin
-        line[wrpntr] <= i_data; // Write data to memory
-    end
+assign o_data = {line[rdPntr],line[rdPntr+1],line[rdPntr+2]};
+
+always @(posedge i_clk)
+begin
+    if(i_rst)
+        rdPntr <= 'd0;
+    else if(i_rd_data)
+        rdPntr <= rdPntr + 'd1;
 end
 
-// --------------------------------------------------------
-// 4. Read Logic
-// --------------------------------------------------------
-// Combinational read to avoid latency, as you requested
-assign o_data = {line[rdpntr],line[rdpntr+1], line[rdpntr+2]};
 
 endmodule
