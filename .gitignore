@@ -14,3 +14,8 @@
 *.runs/
 *.sim/
 *.cache/
+
+# Reproducible local outputs
+build/
+__pycache__/
+*.py[cod]
